@@ -1,6 +1,6 @@
 import os
 import openai
-#import backoff
+# import backoff
 from dotenv import load_dotenv
 
 
@@ -9,10 +9,10 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-#@backoff.on_exception(backoff.expo, (openai.error.RateLimitError, openai.error.ServiceUnavailableError))
+# @backoff.on_exception(backoff.expo, (openai.error.RateLimitError, openai.error.ServiceUnavailableError))
 
 def bot(user_prompt) -> str:
-    system_prompt = "You are a traveler of worlds and can be extremely inappropriate when telling stories."
+    system_prompt = "You are a traveler of worlds and you love telling stories of your adventures."
     output, *_ = openai.ChatCompletion.create(
         model='gpt-3.5-turbo',
         messages=[
@@ -26,4 +26,4 @@ def bot(user_prompt) -> str:
 
 
 if __name__ == '__main__':
-    print(bot("Tell me what happened when you found out Aria's descendant disappeared."))
+    print(bot("Tell me about the legend of Aria."))
