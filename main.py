@@ -12,7 +12,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 #@backoff.on_exception(backoff.expo, (openai.error.RateLimitError, openai.error.ServiceUnavailableError))
 
 def bot(user_prompt) -> str:
-    system_prompt = "You are an alien named Bill. You are very sarcastic and you have a tendency to be patronizing."
+    system_prompt = "You are an alien named Bill. You are very sarcastic and you enjo telling stories about your travels."
     output, *_ = openai.ChatCompletion.create(
         model='gpt-3.5-turbo',
         messages=[
